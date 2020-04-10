@@ -1,0 +1,36 @@
+<h1>Nearest Electric Fueling Station</h1>
+
+<section id='name'>
+  <h4>Station Name</h4>
+  <%= @station[:station_name] %>
+</section>
+
+<section id='address'>
+  <h4>Address</h4>
+  <%= @station_address %>
+</section>
+
+<section id='fuel_type'>
+  <h4>Fuel Type</h4>
+  <%= @station[:fuel_type_code] %>
+</section>
+
+<section id='access_times'>
+  <h4>Access Times</h4>
+  <%= @station[:access_days_time] %>
+</section>
+
+<section id='distance'>
+  <h4>Distance</h4>
+  <%= @directions[:routes].first[:legs].first[:distance][:text] %>
+</section>
+
+<section id='travel_time'>
+  <h4>Travel Time</h4>
+  <%= @directions[:routes].first[:legs].first[:duration][:text] %>
+</section>
+
+<section id='directions'>
+  <h4>Directions</h4>
+<%= @directions[:routes].first[:legs].first[:steps].last[:html_instructions] %>
+</section>

@@ -1,5 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'vcr'
+
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
@@ -60,4 +62,11 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+    VCR.configure do |config|
+    config.cassette_library_dir = "#{::Rails.root}/spec/cassettes"
+    config.hook_into :webmock
+    config.ignore_localhost = true
+    config.configure_rspec_metadata!
+  end
 end
